@@ -1,83 +1,172 @@
+This is **bold** text
+This is *italic* text
+- List item 1
+- List item 2
+
+[Visit Google](https://www.google.com)
+%%%
 1) Omów cztery wybrane programy, które można wykorzystać do pracy zdalnej w informatyce.
+%%%
 2) Wyjaśnij różnicę między emulacją a wirtualizacją oprogramowania i podaj przykłady.
+%%%
 3) Na czym polega normalizacja w relacyjnych bazach danych. Dlaczego jest ważna?
+%%%
 4) Metody analizy obwodów prądu stałego.
+%%%
 5) Metody analizy obwodów pobudzonych sygnałami harmonicznymi w stanie ustalonym.
+%%%
 6) Metody analizy stanów nieustalonych w obwodach liniowych.
+%%%
 7) Omówić protokół HTTP.
+%%%
 8) Omówić protokół MQTT.
+%%%
 9) Omówić technologię ASP.NET.
+%%%
 10) Opisać relacyjny model danych.
+%%%
 11) Omówić język programowania SQL.
+%%%
 12) Twierdzenie Shannona o kodowaniu źródła – sformułowanie, optymalizacja kodu, wydajność kodowa i podstawowe kody.
+%%%
 13) Kodowanie według principiów podanych przez Huffmana.
+%%%
 14) Porównanie architektur procesorów CISC i RISC.
+%%%
 15) Zarządzanie pamięcią operacyjną - porównanie segmentacji z stronicowaniem.
+%%%
 16) Algorytmy szeregowania zadań.
+%%%
 17) Porównanie technik przewidywania i unikania zakleszczeń.
+%%%
 18) Porównanie modeli sieciowych ISO/OSI i TCP/IP.
+%%%
 19) Architektura wybranej usługi w sieci TCP/IP.
+%%%
 20) Porównanie protokołu IPv4 z IPv6.
+%%%
 21) Omówić techniki uwierzytelniania w systemach operacyjnych Unix i Windows.
+%%%
 22) Techniki tunelowania połączeń w sieciach komputerowych.
+%%%
 23) Szyfry podstawieniowe i przestawieniowe – porównanie właściwości.
+%%%
 24) Porównanie symetrycznych systemów kryptograficznych i systemów klucza publicznego.
+%%%
 25) Omówić architekturę mikrokontrolera.
+%%%
 26) Charakterystyka interfejsu SPI w mikrokontrolerze.
+%%%
 27) Charakterystyka interfejsu UART w mikrokontrolerze.
+%%%
 28) Charakterystyka systemu Tetra (Terrestrial Trunked Radio).
+%%%
 29) Charakterystyka systemu DMR (Digital Mobile Radio).
+%%%
 30) Na czym polega rekurencja (rekursja)? Przedstaw przykład rekurencyjnej definicji funkcji matematycznej i jej implementacji w wybranym języku programowania.
+%%%
 31) Wymień przykłady algorytmów sortowania o złożoności obliczeniowej O(n2), O(nlogn) i O(n); Omów wybrany algorytm.
+%%%
 32) Omów standard Unicode i metody kodowania znaków Unicode.
+%%%
 33) Rozwinąć skróty CAD i CAM oraz wskazać możliwości i potencjalne zastosowania każdej z metodologii.
+%%%
 34) Czym jest cyfrowe prototypownie, gdzie znajduje zastosowanie i jakie płyną korzyści z jego zastosowania?
+%%%
 35) Opisać wybraną metodę optymalizacji statycznej.
+%%%
 36) Przedstawić wybraną metodę optymalizacji dynamicznej.
+%%%
 37) Metody optymalizacji wielokryterialnej.
+%%%
 38) Wymagania stawiane układom regulacji. Metody badania stabilności i oceny jakości sterowania.
+%%%
 39) Definicja i kryteria klasyfikacji robotów.
+%%%
 40) Wymień trzy wybrane modele cyklu życia systemu i wskaż specyfikę przedsięwzięć dla których dany model należy zastosować.
+%%%
 41) Wymień role występujące w podejściu SCRUM oraz wskaż główne odpowiedzialności każdej roli.
+%%%
 42) Wyjaśnij różnicę pomiędzy weryfikacją wymagań a walidacją wymagań.
+%%%
 43) Wskaż kiedy warto zastosować prototypowanie podczas analizy i projektowania systemu. Jakie są wady i zalety takiego podejścia?
+%%%
 44) Charakterystyka zasobów informatycznych.
-45)Jakość systemu informatycznego.
+%%%
+45) Jakość systemu informatycznego.
+%%%
 46) Cechy map bitowych.
+%%%
 47) Charakterystyka obiektów prymitywnych w grafice wektorowej.
-48) Modele „sprzętowe” barwy w grafice komputerowe.
+%%%
+48) Modele „sprzętowe” barwy w grafice komputerowej.
+%%%
 49) Porównanie struktur danych: stosu, kolejki oraz kolejki priorytetowej.
+%%%
 50) Drzewa poszukiwań binarnych – charakterystyka i sposoby implementacji.
+%%%
 51) Grafy – charakterystyka, rodzaje i sposoby implementacji.
+%%%
 52) Modele e-biznesu i ich charakterystyka.
+%%%
 53) Metody i narzędzia e-marketingu.
+%%%
 54) Algorytmy sortowania o złożoności logarytmicznej. Przykłady, istota.
+%%%
 55) Kopce i ich rola w usprawnieniu przetwarzania. Algorytm sortowania kopcowego.
+%%%
 56) Omówić istotę rekursji.
+%%%
 57) Omówić istotę dziedziczenia.
+%%%
 58) Omówić istotę polimorfizmu metod.
+%%%
 59) Podać zapis wybranego algorytmu ewolucyjnego oraz scharakteryzować jego poszczególne składowe funkcjonalne.
+%%%
 60) Na czym polega i jaka jest rola reguły 1/5 sukcesu w algorytmach ewolucyjnych.
-61)Jaką rolę w rozwiązywaniu problemów odgrywają algorytmy aproksymacyjne. Podaj przykłady algorytmów aproksymacyjnych.
+%%%
+61) Jaką rolę w rozwiązywaniu problemów odgrywają algorytmy aproksymacyjne. Podaj przykłady algorytmów aproksymacyjnych.
+%%%
 62) Omówić wybrane metody cyfrowego pomiaru napięcia stałego.
+%%%
 63) Przedstawić budowę i koncepcje pracy wybranego oscyloskopu.
+%%%
 64) Scharakteryzować wybrany sposób lutowania automatycznego.
+%%%
 65) Omówić etapy montażu elementów elektronicznych na płytkach drukowanych.
+%%%
 66) Układy zasilania bezprzewodowego typu WPT.
+%%%
 67) Układ pozycjonowania przestrzennego GALILEO.
+%%%
 68) Czym różni się programowanie niskopoziomowe od wysokopoziomowego?
+%%%
 69) Rodzaje i parametry włókien światłowodowych stosowanych w sieciach światłowodowych.
+%%%
 70) Cele i metody minimalizacji funkcji logicznych w układach cyfrowych.
+%%%
 71) Omówić cele i sposoby uruchamiania aplikacji w trybie krokowym (tzw. trybie debugowania) na przykładzie wybranego środowiska programistycznego.
+%%%
 72) Wykorzystując charakterystyki elementu, przedstawić zakresy pracy tranzystora polowego. Przedstawić zastosowania układowe tranzystora, w których te zakresy są wykorzystywane.
+%%%
 73) Opisać działanie wzmacniacza nieodwracającego. Przedstawić wzór na wzmocnienie napięciowe tego układu wykorzystując rezystory w tym układzie.
+%%%
 74) Budowanie aplikacji WWW w architekturze MVC.
+%%%
 75) Frameworki wspomagające tworzenie aplikacji WWW w technologiach Java.
-76) Selektory: proste, uniwersalne, „potomka” , „dziecka”, „rodzeństwa”, pseudoklasy, pseudoelementy.
+%%%
+76) Selektory: proste, uniwersalne, „potomka”, „dziecka”, „rodzeństwa”, pseudoklasy, pseudoelementy.
+%%%
 77) DOM: współpraca z przeglądarką (obiekty główne przeglądarki, obiekt window, document, history, location, navigator) i dostęp do elementów witryny.
+%%%
 78) Omówić modele obliczeń równoległych.
+%%%
 79) Omówić rodzaje chmur obliczeniowych oraz ich zalety i wady.
+%%%
 80) Słuchacze w aplikacjach mobilnych.
+%%%
 81) Rola intencji w aplikacjach mobilnych.
+%%%
 82) Porównaj algorytmy: przeszukiwania lokalnego, symulowanego wyżarzania oraz przeszukiwania z tabu.
+%%%
 83) Scharakteryzuj grupę algorytmów inspirowanych naturą.

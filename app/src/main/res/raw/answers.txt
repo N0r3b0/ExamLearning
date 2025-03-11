@@ -1,83 +1,120 @@
-1) Omów cztery wybrane programy, które można wykorzystać do pracy zdalnej w informatyce.
-2) Wyjaśnij różnicę między emulacją a wirtualizacją oprogramowania i podaj przykłady.
-3) Na czym polega normalizacja w relacyjnych bazach danych. Dlaczego jest ważna?
-4) Metody analizy obwodów prądu stałego.
-5) Metody analizy obwodów pobudzonych sygnałami harmonicznymi w stanie ustalonym.
-6) Metody analizy stanów nieustalonych w obwodach liniowych.
-7) Omówić protokół HTTP.
-8) Omówić protokół MQTT.
-9) Omówić technologię ASP.NET.
-10) Opisać relacyjny model danych.
-11) Omówić język programowania SQL.
-12) Twierdzenie Shannona o kodowaniu źródła – sformułowanie, optymalizacja kodu, wydajność kodowa i podstawowe kody. 12) Twierdzenie Shannona o kodowaniu źródła – sformułowanie, optymalizacja kodu, wydajność kodowa i podstawowe kody.12) Twierdzenie Shannona o kodowaniu źródła – sformułowanie, optymalizacja kodu, wydajność kodowa i podstawowe kody.12) Twierdzenie Shannona o kodowaniu źródła – sformułowanie, optymalizacja kodu, wydajność kodowa i podstawowe kody.
-13) Kodowanie według principiów podanych przez Huffmana.
-14) Porównanie architektur procesorów CISC i RISC.
-15) Zarządzanie pamięcią operacyjną - porównanie segmentacji z stronicowaniem.
-16) Algorytmy szeregowania zadań.
-17) Porównanie technik przewidywania i unikania zakleszczeń.
-18) Porównanie modeli sieciowych ISO/OSI i TCP/IP.
-19) Architektura wybranej usługi w sieci TCP/IP.
-20) Porównanie protokołu IPv4 z IPv6.
-21) Omówić techniki uwierzytelniania w systemach operacyjnych Unix i Windows.
-22) Techniki tunelowania połączeń w sieciach komputerowych.
-23) Szyfry podstawieniowe i przestawieniowe – porównanie właściwości.
-24) Porównanie symetrycznych systemów kryptograficznych i systemów klucza publicznego.
-25) Omówić architekturę mikrokontrolera.
-26) Charakterystyka interfejsu SPI w mikrokontrolerze.
-27) Charakterystyka interfejsu UART w mikrokontrolerze.
-28) Charakterystyka systemu Tetra (Terrestrial Trunked Radio).
-29) Charakterystyka systemu DMR (Digital Mobile Radio).
-30) Na czym polega rekurencja (rekursja)? Przedstaw przykład rekurencyjnej definicji funkcji matematycznej i jej implementacji w wybranym języku programowania.
-31) Wymień przykłady algorytmów sortowania o złożoności obliczeniowej O(n2), O(nlogn) i O(n); Omów wybrany algorytm.
-32) Omów standard Unicode i metody kodowania znaków Unicode.
-33) Rozwinąć skróty CAD i CAM oraz wskazać możliwości i potencjalne zastosowania każdej z metodologii.
-34) Czym jest cyfrowe prototypownie, gdzie znajduje zastosowanie i jakie płyną korzyści z jego zastosowania?
-35) Opisać wybraną metodę optymalizacji statycznej.
-36) Przedstawić wybraną metodę optymalizacji dynamicznej.
-37) Metody optymalizacji wielokryterialnej.
-38) Wymagania stawiane układom regulacji. Metody badania stabilności i oceny jakości sterowania.
-39) Definicja i kryteria klasyfikacji robotów.
-40) Wymień trzy wybrane modele cyklu życia systemu i wskaż specyfikę przedsięwzięć dla których dany model należy zastosować.
-41) Wymień role występujące w podejściu SCRUM oraz wskaż główne odpowiedzialności każdej roli.
-42) Wyjaśnij różnicę pomiędzy weryfikacją wymagań a walidacją wymagań.
-43) Wskaż kiedy warto zastosować prototypowanie podczas analizy i projektowania systemu. Jakie są wady i zalety takiego podejścia?
-44) Charakterystyka zasobów informatycznych.
-45)Jakość systemu informatycznego.
-46) Cechy map bitowych.
-47) Charakterystyka obiektów prymitywnych w grafice wektorowej.
-48) Modele „sprzętowe” barwy w grafice komputerowe.
-49) Porównanie struktur danych: stosu, kolejki oraz kolejki priorytetowej.
-50) Drzewa poszukiwań binarnych – charakterystyka i sposoby implementacji.
-51) Grafy – charakterystyka, rodzaje i sposoby implementacji.
-52) Modele e-biznesu i ich charakterystyka.
-53) Metody i narzędzia e-marketingu.
-54) Algorytmy sortowania o złożoności logarytmicznej. Przykłady, istota.
-55) Kopce i ich rola w usprawnieniu przetwarzania. Algorytm sortowania kopcowego.
-56) Omówić istotę rekursji.
-57) Omówić istotę dziedziczenia.
-58) Omówić istotę polimorfizmu metod.
-59) Podać zapis wybranego algorytmu ewolucyjnego oraz scharakteryzować jego poszczególne składowe funkcjonalne.
-60) Na czym polega i jaka jest rola reguły 1/5 sukcesu w algorytmach ewolucyjnych.
-61)Jaką rolę w rozwiązywaniu problemów odgrywają algorytmy aproksymacyjne. Podaj przykłady algorytmów aproksymacyjnych.
-62) Omówić wybrane metody cyfrowego pomiaru napięcia stałego.
-63) Przedstawić budowę i koncepcje pracy wybranego oscyloskopu.
-64) Scharakteryzować wybrany sposób lutowania automatycznego.
-65) Omówić etapy montażu elementów elektronicznych na płytkach drukowanych.
-66) Układy zasilania bezprzewodowego typu WPT.
-67) Układ pozycjonowania przestrzennego GALILEO.
-68) Czym różni się programowanie niskopoziomowe od wysokopoziomowego?
-69) Rodzaje i parametry włókien światłowodowych stosowanych w sieciach światłowodowych.
-70) Cele i metody minimalizacji funkcji logicznych w układach cyfrowych.
-71) Omówić cele i sposoby uruchamiania aplikacji w trybie krokowym (tzw. trybie debugowania) na przykładzie wybranego środowiska programistycznego.
-72) Wykorzystując charakterystyki elementu, przedstawić zakresy pracy tranzystora polowego. Przedstawić zastosowania układowe tranzystora, w których te zakresy są wykorzystywane.
-73) Opisać działanie wzmacniacza nieodwracającego. Przedstawić wzór na wzmocnienie napięciowe tego układu wykorzystując rezystory w tym układzie.
-74) Budowanie aplikacji WWW w architekturze MVC.
-75) Frameworki wspomagające tworzenie aplikacji WWW w technologiach Java.
-76) Selektory: proste, uniwersalne, „potomka” , „dziecka”, „rodzeństwa”, pseudoklasy, pseudoelementy.
-77) DOM: współpraca z przeglądarką (obiekty główne przeglądarki, obiekt window, document, history, location, navigator) i dostęp do elementów witryny.
-78) Omówić modele obliczeń równoległych.
-79) Omówić rodzaje chmur obliczeniowych oraz ich zalety i wady.
-80) Słuchacze w aplikacjach mobilnych.
-81) Rola intencji w aplikacjach mobilnych.
-82) Porównaj algorytmy: przeszukiwania lokalnego, symulowanego wyżarzania oraz przeszukiwania z tabu.
-83) Scharakteryzuj grupę algorytmów inspirowanych naturą.
+This is **bold** text
+This is *italic* text
+- List item 1
+- List item 2
+
+[Visit Google](https://www.google.com)
+%%%
+Slack – narzędzie do komunikacji zespołowej, oferujące czaty, kanały tematyczne, integracje z innymi aplikacjami (np. GitHub, Jira).
+Zoom – platforma do wideokonferencji, umożliwia udostępnianie ekranu, nagrywanie spotkań i organizowanie webinariów.
+Trello – aplikacja do zarządzania projektami oparta na tablicach i kartach, ułatwiająca organizację zadań metodą Kanban.
+GitHub – system kontroli wersji dla programistów, pozwalający na współpracę nad kodem, zgłaszanie problemów i przeglądanie zmian w repozytorium.
+%%%
+Emulacja polega na naśladowaniu innego sprzętu i środowiska systemowego, umożliwiając uruchamianie oprogramowania przeznaczonego dla innej architektury . Działa wolniej niż wirtualizacja ponieważ musi tłumaczyć instrukcje maszynowe między różnymi architekturami np. Emulator androida, PS4.
+
+Wirtualizacja dzieli zasoby sprzętowe na maszyny wirtualne, które działają niezależnie od siebie i hosta, z użyciem hypervisora np. VirtualBox, VMWare.
+%%%
+Normalizacja w relacyjnych bazach danych to proces organizowania danych w taki sposób, aby zminimalizować ich powtarzanie się i zależności. Jest ważna ponieważ prowadzi do bardziej efektywnego przechowywania i zarządzania danymi. Proces ten polega na podziale tabel na mniejsze, bardziej spójne tabele i ustaleniu relacji między nimi.
+1) forma normalna:
+- Każda tabela musi mieć klucz główny (unikalny identyfikator dla każdego rekordu).
+- Wszystkie wartości w kolumnach muszą być atomowe (niepodzielne), co oznacza, że nie mogą zawierać zbiorów lub powtarzających się grup.
+2) forma normalna:
+- Wszystkie kolumny, które nie są częścią klucza głównego, muszą być w pełni zależne od całego klucza głównego, a nie tylko od jego części.
+3) forma normalna:
+- Żadna kolumna, która nie jest częścią klucza głównego, nie może być zależna od innej kolumny nie będącej częścią klucza głównego.
+%%%
+Prawo Ohma --> V = I * R
+1 Prawo Kirhoffa (Opiera się na nim Metoda węzłowa)
+    - Suma prądów wpływających do węzła jest równa sumie prądów wypływających z tego węzła.
+2 Prawo Kirhoffa (Opiera się na nim Metoda oczkowa)
+    - Suma spadków napięć w zamkniętej pętli obwodu jest równa sumie sił elektromotorycznych w tej pętli.
+
+Twierdzenie Thevenina
+    - Każdy liniowy obwód złożony z rezystorów i źródeł prądu lub napięcia można zastąpić równoważnym obwodem składającym się z jednego źródła napięcia i jednego rezystora połączonych szeregowo.
+
+Metoda potencjałów węzłowychsłuży do znajdowania wartości napięcia w węzłach.
+    - zamiana wszystkich niezależnych źródeł napięciowych na prądowe
+    - ustalenie węzła odniesienia o potencjale zero
+    - ułożenie równania dla każdego węzła, poza węzłem odniesienia, zgodnie z 1 prawem Kirchhoffa i prawem Ohma
+
+Metoda prądów oczkowych służy do znajdowania wartości prądu w oczkach
+    - zamiana wszystkich niezależnych źródeł prądowych na napięciowe z wykorzystaniem twierdzenia Thévenina
+    - określenie w obwodzie oczek czyli niezależnych obwodów w sieci ich liczba to różnica liczby gałęzi i węzłów plus 1, oraz ich zwrotów ułożenie równania dla każdego oczka, zgodnie z 2 prawem Kirchhoffa i prawem Ohma
+%%%
+Metoda liczb zespolonych – używa impedancji (𝑍=𝑅+𝑗𝑋) i fasorów do przekształcenia równań różniczkowych na algebraiczne.
+
+Metoda oczkowa i węzłowa – podobnie jak w obwodach DC, ale z zastosowaniem liczb zespolonych.
+
+Twierdzenie Thevenina i Nortona – pozwalają upraszczać obwody z elementami RLC.
+
+Analiza harmoniczna – stosowana przy sygnałach okresowych, wykorzystuje transformatę Fouriera.
+%%%
+Do metod analizy stanów nieustalonych należy klasyczna metoda całki nieoznaczonej oraz metoda Laplace'a. W obu metodach obwód opisany jest układem równań różniczkowych zmiennej czasu.
+
+W metodzie całki nieoznaczonej obwód opisany jest układem równań różniczkowych zmiennej czasu. Ku rozwiązaniu tego układu należy wykonać następujące kroki:
+sprowadzenie równań do jednego równania poprzez różniczkowanie i podstawianie poszczególnych równań
+rozwiązanie równania różniczkowego jednorodnego
+wyznaczenie stałych całkowania w zależności od warunków początkowych
+ewentualne wyznaczenie innych wartości w zależności od wyniku
+
+Metoda Laplace’a wykorzystuje rachunek operatorowy Laplace’a:
+ułożenie równania w dziedzinie zmiennej zespolonej s
+przekształcenie równania - odwrotna transformata Laplace’a po obu stronach, zwykle obliczana metodą residuów
+
+%%%
+HyperText Transfer Protocol, podstawowy protokół sieciowy do komunikacji przeglądarki z serwerem.
+
+Oparty na modelu żądanie-odpowiedź, wykorzystuje metody jak GET (pobieranie danych), POST (wysyłanie danych), PUT, DELETE.
+
+Występuje w wersjach HTTP/1.1, HTTP/2 i HTTP/3, które różnią się wydajnością i bezpieczeństwem.
+%%%
+Message Queuing Telemetry Transport – lekki protokół komunikacyjny dla urządzeń IoT.
+
+Działa w modelu publikacja-subskrypcja, gdzie broker pośredniczy w przesyłaniu wiadomości między klientami.
+
+Stosowany w automatyce domowej, przemyśle i aplikacjach wymagających minimalnej ilości przesyłanych danych.
+%%%
+
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%

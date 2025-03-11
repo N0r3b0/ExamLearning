@@ -1,6 +1,7 @@
 package com.example.examlearnapp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -23,11 +24,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import io.noties.markwon.Markwon;
+
 public class GameModeActivity extends AppCompatActivity {
     private ScoreDbHelper dbHelper;
     private List<String> allQuestions;
     private List<String> allAnswers;
     private List<Integer> questionIndices = new ArrayList<>();
+    private Markwon markwon;
     private TextView gameQuestionText;
     private TextView scoreDisplay;
     private TextView answerText;
@@ -46,6 +50,7 @@ public class GameModeActivity extends AppCompatActivity {
         dbHelper = new ScoreDbHelper(this);
 
         // Initialize views
+        markwon = Markwon.create(this);
         gameQuestionText = findViewById(R.id.gameQuestionText);
         answerText = findViewById(R.id.answerText);
         rangeInput = findViewById(R.id.rangeInput);
@@ -142,7 +147,8 @@ public class GameModeActivity extends AppCompatActivity {
     private void showNextQuestion() {
         if (currentQuestion < totalQuestions) {
             int actualIndex = questionIndices.get(currentQuestion);
-            gameQuestionText.setText(allQuestions.get(actualIndex));
+            String markdown = allQuestions.get(actualIndex);
+            markwon.setMarkdown(gameQuestionText, markdown);
             answerText.setVisibility(View.GONE);
             currentQuestion++;
         } else {
@@ -153,7 +159,8 @@ public class GameModeActivity extends AppCompatActivity {
     private void showAnswer() {
         if (currentQuestion > 0 && currentQuestion <= totalQuestions) {
             int actualIndex = questionIndices.get(currentQuestion - 1);
-            answerText.setText(allAnswers.get(actualIndex));
+            String markdown = allAnswers.get(actualIndex);
+            markwon.setMarkdown(answerText, markdown);
             answerText.setVisibility(View.VISIBLE);
         }
     }
@@ -167,14 +174,30 @@ public class GameModeActivity extends AppCompatActivity {
     }
 
     // Keep your existing loadQuestions method
-    public static List<String> loadQuestions(android.content.Context context, int resourceId) {
+    public static List<String> loadQuestions(Context context, int resourceId) {
         List<String> list = new ArrayList<>();
         try {
             InputStream inputStream = context.getResources().openRawResource(resourceId);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder sb = new StringBuilder();
             String line;
+
+            // Use a delimiter to separate answers (e.g., %%%)
+            String delimiter = "%%%";
+
             while ((line = reader.readLine()) != null) {
-                list.add(line);
+                if (line.equals(delimiter)) {
+                    if (sb.length() > 0) {
+                        list.add(sb.toString().trim());
+                        sb.setLength(0);
+                    }
+                } else {
+                    sb.append(line).append("\n");
+                }
+            }
+            // Add the last answer if exists
+            if (sb.length() > 0) {
+                list.add(sb.toString().trim());
             }
             reader.close();
         } catch (IOException e) {

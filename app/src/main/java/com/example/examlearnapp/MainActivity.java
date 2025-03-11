@@ -1,6 +1,5 @@
 package com.example.examlearnapp;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,15 +13,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import io.noties.markwon.Markwon;
 
 public class MainActivity extends AppCompatActivity {
     private List<String> questions;
     private List<String> answers;
     private TextView questionText;
     private TextView answerText;
+    private Markwon markwon;
     private EditText numberInput;
     private int currentQuestionIndex = -1;
     @Override
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize views
         questionText = findViewById(R.id.questionText);
         answerText = findViewById(R.id.answerText);
+        markwon = Markwon.create(this);
         numberInput = findViewById(R.id.numberInput);
         Button randomButton = findViewById(R.id.randomButton);
         Button showAnswerButton = findViewById(R.id.showAnswerButton);
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         previousButton.setOnClickListener(v -> showPreviousQuestion());
         nextButton.setOnClickListener(v -> showNextQuestion());
         showQuestionButton.setOnClickListener(v -> showQuestion());
+
     }
 
     private void showQuestion() {
@@ -86,19 +89,36 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateQuestionDisplay() {
         if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.size()) {
-            questionText.setText(questions.get(currentQuestionIndex));
+            String markdown = questions.get(currentQuestionIndex);
+            markwon.setMarkdown(questionText, markdown);
             answerText.setVisibility(View.INVISIBLE);
         }
     }
 
-    public static List<String> loadQuestions(android.content.Context context, int resourceId) {
+    public static List<String> loadQuestions(Context context, int resourceId) {
         List<String> list = new ArrayList<>();
         try {
             InputStream inputStream = context.getResources().openRawResource(resourceId);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder sb = new StringBuilder();
             String line;
+
+            // Use a delimiter to separate answers (e.g., %%%)
+            String delimiter = "%%%";
+
             while ((line = reader.readLine()) != null) {
-                list.add(line);
+                if (line.equals(delimiter)) {
+                    if (sb.length() > 0) {
+                        list.add(sb.toString().trim());
+                        sb.setLength(0);
+                    }
+                } else {
+                    sb.append(line).append("\n");
+                }
+            }
+            // Add the last answer if exists
+            if (sb.length() > 0) {
+                list.add(sb.toString().trim());
             }
             reader.close();
         } catch (IOException e) {
@@ -116,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAnswer() {
         if (currentQuestionIndex != -1) {
-            answerText.setText(answers.get(currentQuestionIndex));
+            String markdown = answers.get(currentQuestionIndex);
+            markwon.setMarkdown(answerText, markdown);
             answerText.setVisibility(View.VISIBLE);
         }
     }
