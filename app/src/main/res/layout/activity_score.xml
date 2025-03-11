@@ -8,6 +8,17 @@
     android:padding="20dp"
     android:background="@drawable/gradient_background">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/historyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historia"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@null"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"/>
+
     <TextView
         android:id="@+id/scoreText"
         android:layout_width="wrap_content"
@@ -21,6 +32,16 @@
         android:background="@drawable/rounded_corner"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/backToGameMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powrót do trybu gry"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@null"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,4 +50,5 @@
         android:textColor="#FFFFFF"
         app:backgroundTint="@null"
         android:layout_marginTop="20dp"/>
+
 </LinearLayout>

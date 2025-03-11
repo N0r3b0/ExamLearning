@@ -1,10 +1,13 @@
 package com.example.examlearnapp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,18 +16,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class GameModeActivity extends AppCompatActivity {
+    private ScoreDbHelper dbHelper;
     private List<String> allQuestions;
     private List<String> allAnswers;
     private List<Integer> questionIndices = new ArrayList<>();
     private TextView gameQuestionText;
+    private TextView scoreDisplay;
     private TextView answerText;
     private EditText rangeInput;
-    private Button yesButton, noButton, showAnswerButton;
+    private Button yesButton, noButton, showAnswerButton, historyButton;
+    private LinearLayout setupSection;
     private int score = 0;
     private int currentQuestion = 0;
     private int totalQuestions;
@@ -34,6 +43,8 @@ public class GameModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_mode);
 
+        dbHelper = new ScoreDbHelper(this);
+
         // Initialize views
         gameQuestionText = findViewById(R.id.gameQuestionText);
         answerText = findViewById(R.id.answerText);
@@ -42,6 +53,9 @@ public class GameModeActivity extends AppCompatActivity {
         noButton = findViewById(R.id.noButton);
         showAnswerButton = findViewById(R.id.showAnswerButton);
         Button startQuizButton = findViewById(R.id.startQuizButton);
+        historyButton = findViewById(R.id.historyButton);
+        scoreDisplay = findViewById(R.id.scoreDisplay);
+        setupSection = findViewById(R.id.setupSection);
 
         // Load all questions and answers
         allQuestions = loadQuestions(this, R.raw.questions);
@@ -52,6 +66,7 @@ public class GameModeActivity extends AppCompatActivity {
         noButton.setOnClickListener(v -> handleAnswer(false));
         showAnswerButton.setOnClickListener(v -> showAnswer());
         startQuizButton.setOnClickListener(v -> setupQuiz());
+        historyButton.setOnClickListener(v -> showScoreHistory());
     }
 
     private void setupQuiz() {
@@ -102,6 +117,11 @@ public class GameModeActivity extends AppCompatActivity {
         totalQuestions = questionIndices.size();
         currentQuestion = 0;
         score = 0;
+
+        setupSection.setVisibility(View.GONE);
+        scoreDisplay.setVisibility(View.VISIBLE);
+        updateScoreDisplay();
+
         showNextQuestion();
     }
 
@@ -109,9 +129,14 @@ public class GameModeActivity extends AppCompatActivity {
         if (known) {
             score++;
         } else {
-            score = Math.max(0, score - 1);
+//            score = Math.max(0, score - 1);
         }
+        updateScoreDisplay();
         showNextQuestion();
+    }
+
+    private void updateScoreDisplay() {
+        scoreDisplay.setText("Punkty: " + score);
     }
 
     private void showNextQuestion() {
@@ -136,6 +161,7 @@ public class GameModeActivity extends AppCompatActivity {
     private void endGame() {
         Intent intent = new Intent(this, ScoreActivity.class);
         intent.putExtra("score", score);
+        dbHelper.addScore(score);
         startActivity(intent);
         finish();
     }
@@ -155,5 +181,37 @@ public class GameModeActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return list;
+    }
+
+    private void showScoreHistory() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Historia wyników");
+
+        // Get scores from database
+        Cursor cursor = dbHelper.getAllScores();
+        StringBuilder history = new StringBuilder();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault());
+
+        while (cursor.moveToNext()) {
+            int score = cursor.getInt(cursor.getColumnIndexOrThrow(ScoreDbHelper.COLUMN_SCORE));
+            String timestamp = cursor.getString(cursor.getColumnIndexOrThrow(ScoreDbHelper.COLUMN_TIMESTAMP));
+
+            try {
+                Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(timestamp);
+                timestamp = dateFormat.format(date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            history.append("Wynik: ").append(score)
+                    .append("\nData: ").append(timestamp)
+                    .append("\n\n");
+        }
+        cursor.close();
+
+        builder.setMessage(history.toString());
+        builder.setPositiveButton("OK", null);
+        builder.show();
     }
 }

@@ -8,24 +8,57 @@
     android:gravity="center"
     android:background="@drawable/gradient_background">
 
-    <EditText
-        android:id="@+id/rangeInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Wpisz zakres pytań (np. 10-20)"
-        android:background="@drawable/rounded_corner"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"
-        android:layout_marginBottom="20dp"/>
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/startQuizButton"
-        android:layout_width="match_parent"
+        android:id="@+id/historyButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rozpocznij quiz"
+        android:text="Historia"
         android:background="@drawable/button_background"
         android:textColor="#FFFFFF"
         app:backgroundTint="@null"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"/>
+
+    <!-- Score Display -->
+    <TextView
+        android:id="@+id/scoreDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Punkty: 0"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="end"
+        android:visibility="gone"
         android:layout_marginBottom="20dp"/>
+
+    <!-- Quiz Setup Section -->
+    <LinearLayout
+        android:id="@+id/setupSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/rangeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Wpisz zakres (np. 10-20)"
+            android:background="@drawable/rounded_corner"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCCCCC"
+            android:layout_marginBottom="20dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/startQuizButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rozpocznij quiz"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@null"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/gameQuestionText"
