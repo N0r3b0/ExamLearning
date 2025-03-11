@@ -1,0 +1,5 @@
+ODPCo to jest Android?ODP
+ODPJakie są cykle życia Activity?ODP
+ODPCzym jest RecyclerView?ODP
+ODPCo to jest Intent w Androidzie?ODP
+ODPJak działa SharedPreferences?ODP

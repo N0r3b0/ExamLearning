@@ -1,0 +1,5 @@
+Co to jest Android?
+Jakie są cykle życia Activity?
+Czym jest RecyclerView?
+Co to jest Intent w Androidzie?
+Jak działa SharedPreferences?
