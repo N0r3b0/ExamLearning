@@ -25,27 +25,70 @@ public class MainActivity extends AppCompatActivity {
     private TextView answerText;
     private EditText numberInput;
     private int currentQuestionIndex = -1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize views
         questionText = findViewById(R.id.questionText);
         answerText = findViewById(R.id.answerText);
         numberInput = findViewById(R.id.numberInput);
         Button randomButton = findViewById(R.id.randomButton);
         Button showAnswerButton = findViewById(R.id.showAnswerButton);
-        Button chooseButton = findViewById(R.id.chooseButton);
         Button gameModeButton = findViewById(R.id.gameModeButton);
+        Button previousButton = findViewById(R.id.previousButton);
+        Button showQuestionButton = findViewById(R.id.showQuestionButton);
+        Button nextButton = findViewById(R.id.nextButton);
 
+        // Load questions and answers
         questions = loadQuestions(this, R.raw.questions);
         answers = loadQuestions(this, R.raw.answers);
 
+        // Button click listeners
         randomButton.setOnClickListener(v -> showRandomQuestion());
         showAnswerButton.setOnClickListener(v -> showAnswer());
-        chooseButton.setOnClickListener(v -> chooseQuestion());
         gameModeButton.setOnClickListener(v -> startGameMode());
+
+        // New buttons
+        previousButton.setOnClickListener(v -> showPreviousQuestion());
+        nextButton.setOnClickListener(v -> showNextQuestion());
+        showQuestionButton.setOnClickListener(v -> showQuestion());
+    }
+
+    private void showQuestion() {
+        String input = numberInput.getText().toString().trim();
+        if (!input.isEmpty()) {
+            try {
+                int number = Integer.parseInt(input);
+                if (number >= 1 && number <= questions.size()) {
+                    currentQuestionIndex = number - 1;
+                    numberInput.getText().clear();
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        } else {
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.size();
+        }
+        updateQuestionDisplay();
+    }
+
+    private void showPreviousQuestion() {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.size()) % questions.size();
+        updateQuestionDisplay();
+    }
+
+    private void showNextQuestion() {
+        currentQuestionIndex = (currentQuestionIndex + 1) % questions.size();
+        updateQuestionDisplay();
+    }
+
+    private void updateQuestionDisplay() {
+        if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.size()) {
+            questionText.setText(questions.get(currentQuestionIndex));
+            answerText.setVisibility(View.INVISIBLE);
+        }
     }
 
     public static List<String> loadQuestions(android.content.Context context, int resourceId) {

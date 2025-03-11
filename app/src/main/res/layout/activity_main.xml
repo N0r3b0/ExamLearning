@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/gradient_background">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/gameModeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tryb gry"
+        android:background="@drawable/button_background"
+        app:backgroundTint="@null"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="end"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/questionText"
@@ -13,7 +26,10 @@
         android:text="Pytanie pojawi się tutaj"
         android:textSize="18sp"
         android:padding="10dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/answerText"
@@ -21,37 +37,80 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:padding="10dp"
-        android:visibility="gone" />
-
+        android:visibility="gone"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/numberInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Wpisz numer pytania (1-80)"
-        android:inputType="number" />
+        android:inputType="number"
+        android:background="@drawable/rounded_corner"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC"
+        android:layout_marginBottom="20dp"/>
 
-    <Button
-        android:id="@+id/chooseButton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Wybierz pytanie" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
-    <Button
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previousButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="◀"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="5dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/showQuestionButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Pokaż pytanie"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@null"
+            android:layout_marginHorizontal="5dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="▶"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@null"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/randomButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Losuj pytanie" />
+        android:text="Losuj pytanie"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@null"
+        android:layout_marginBottom="10dp"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/showAnswerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pokaż odpowiedź" />
+        android:text="Pokaż odpowiedź"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@null"
+        android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/gameModeButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tryb gry" />
 </LinearLayout>
