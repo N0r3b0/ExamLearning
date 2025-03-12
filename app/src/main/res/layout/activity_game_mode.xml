@@ -48,11 +48,11 @@
                 android:id="@+id/rangeInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Wpisz zakres (np. 10-20)"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/rounded_corner"
+                android:hint="Wpisz zakres (np. 10,20)"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#CCCCCC"
-                android:layout_marginBottom="20dp"/>
+                android:textColorHint="#CCCCCC" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/startQuizButton"

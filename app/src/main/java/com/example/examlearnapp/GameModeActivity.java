@@ -91,7 +91,7 @@ public class GameModeActivity extends AppCompatActivity {
 
         try {
             if (!range.isEmpty()) {
-                String[] parts = range.split("-");
+                String[] parts = range.split(",");
                 if (parts.length != 2) throw new Exception();
 
                 int start = Integer.parseInt(parts[0].trim()) - 1;
@@ -115,7 +115,7 @@ public class GameModeActivity extends AppCompatActivity {
                 }
             }
         } catch (Exception e) {
-            Toast.makeText(this, "Format: np. 10-20", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Format: np. 10,20", Toast.LENGTH_SHORT).show();
             return;
         }
 
