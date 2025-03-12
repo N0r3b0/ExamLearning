@@ -3,11 +3,14 @@ package com.example.examlearnapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +18,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import io.noties.markwon.Markwon;
 
@@ -89,9 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateQuestionDisplay() {
         if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.size()) {
-            String markdown = questions.get(currentQuestionIndex);
-            markwon.setMarkdown(questionText, markdown);
-            answerText.setVisibility(View.INVISIBLE);
+            questionText.setText(questions.get(currentQuestionIndex));
+            answerText.setVisibility(View.GONE);
         }
     }
 
@@ -103,11 +107,13 @@ public class MainActivity extends AppCompatActivity {
             StringBuilder sb = new StringBuilder();
             String line;
 
-            // Use a delimiter to separate answers (e.g., %%%)
-            String delimiter = "%%%";
+            // Use a regex to separate answers (e.g., %%%)
+            Pattern pattern = Pattern.compile("%%%\\d+%%%");
 
             while ((line = reader.readLine()) != null) {
-                if (line.equals(delimiter)) {
+                Matcher matcher = pattern.matcher(line);
+
+                if (matcher.matches()) {
                     if (sb.length() > 0) {
                         list.add(sb.toString().trim());
                         sb.setLength(0);
@@ -130,32 +136,20 @@ public class MainActivity extends AppCompatActivity {
     private void showRandomQuestion() {
         Random random = new Random();
         currentQuestionIndex = random.nextInt(questions.size());
-        questionText.setText(questions.get(currentQuestionIndex));
-        answerText.setVisibility(View.INVISIBLE);
+        updateQuestionDisplay();
     }
 
     private void showAnswer() {
         if (currentQuestionIndex != -1) {
-            String markdown = answers.get(currentQuestionIndex);
-            markwon.setMarkdown(answerText, markdown);
+            String html = MarkdownToHtmlConverter.markdownToHtml(answers.get(currentQuestionIndex));
+            Spanned spanned = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT);
+            answerText.setText(spanned);
             answerText.setVisibility(View.VISIBLE);
         }
     }
-
-    private void chooseQuestion() {
-        String input = numberInput.getText().toString();
-        if (!input.isEmpty()) {
-            int index = Integer.parseInt(input) - 1;
-            if (index >= 0 && index < questions.size()) {
-                currentQuestionIndex = index;
-                questionText.setText(questions.get(index));
-            }
-            answerText.setVisibility(View.INVISIBLE);
-        }
-    }
-
     private void startGameMode() {
         Intent intent = new Intent(this, GameModeActivity.class);
         startActivity(intent);
     }
+
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,6 +25,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import io.noties.markwon.Markwon;
 
@@ -61,6 +65,12 @@ public class GameModeActivity extends AppCompatActivity {
         historyButton = findViewById(R.id.historyButton);
         scoreDisplay = findViewById(R.id.scoreDisplay);
         setupSection = findViewById(R.id.setupSection);
+
+        // hide game section
+        noButton.setVisibility(View.GONE);
+        yesButton.setVisibility(View.GONE);
+        showAnswerButton.setVisibility(View.GONE);
+        gameQuestionText.setVisibility(View.GONE);
 
         // Load all questions and answers
         allQuestions = loadQuestions(this, R.raw.questions);
@@ -124,7 +134,14 @@ public class GameModeActivity extends AppCompatActivity {
         score = 0;
 
         setupSection.setVisibility(View.GONE);
+        historyButton.setVisibility(View.GONE);
+        // show game section
         scoreDisplay.setVisibility(View.VISIBLE);
+        noButton.setVisibility(View.VISIBLE);
+        yesButton.setVisibility(View.VISIBLE);
+        showAnswerButton.setVisibility(View.VISIBLE);
+        gameQuestionText.setVisibility(View.VISIBLE);
+
         updateScoreDisplay();
 
         showNextQuestion();
@@ -147,8 +164,7 @@ public class GameModeActivity extends AppCompatActivity {
     private void showNextQuestion() {
         if (currentQuestion < totalQuestions) {
             int actualIndex = questionIndices.get(currentQuestion);
-            String markdown = allQuestions.get(actualIndex);
-            markwon.setMarkdown(gameQuestionText, markdown);
+            gameQuestionText.setText(allQuestions.get(actualIndex));
             answerText.setVisibility(View.GONE);
             currentQuestion++;
         } else {
@@ -159,8 +175,9 @@ public class GameModeActivity extends AppCompatActivity {
     private void showAnswer() {
         if (currentQuestion > 0 && currentQuestion <= totalQuestions) {
             int actualIndex = questionIndices.get(currentQuestion - 1);
-            String markdown = allAnswers.get(actualIndex);
-            markwon.setMarkdown(answerText, markdown);
+            String html = MarkdownToHtmlConverter.markdownToHtml(allAnswers.get(actualIndex));
+            Spanned spanned = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT);
+            answerText.setText(spanned);
             answerText.setVisibility(View.VISIBLE);
         }
     }
@@ -173,7 +190,6 @@ public class GameModeActivity extends AppCompatActivity {
         finish();
     }
 
-    // Keep your existing loadQuestions method
     public static List<String> loadQuestions(Context context, int resourceId) {
         List<String> list = new ArrayList<>();
         try {
@@ -182,11 +198,13 @@ public class GameModeActivity extends AppCompatActivity {
             StringBuilder sb = new StringBuilder();
             String line;
 
-            // Use a delimiter to separate answers (e.g., %%%)
-            String delimiter = "%%%";
+            // Use a regex to separate answers (e.g., %%%)
+            Pattern pattern = Pattern.compile("%%%\\d+%%%");
 
             while ((line = reader.readLine()) != null) {
-                if (line.equals(delimiter)) {
+                Matcher matcher = pattern.matcher(line);
+
+                if (matcher.matches()) {
                     if (sb.length() > 0) {
                         list.add(sb.toString().trim());
                         sb.setLength(0);
@@ -195,7 +213,6 @@ public class GameModeActivity extends AppCompatActivity {
                     sb.append(line).append("\n");
                 }
             }
-            // Add the last answer if exists
             if (sb.length() > 0) {
                 list.add(sb.toString().trim());
             }
